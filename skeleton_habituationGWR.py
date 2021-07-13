@@ -33,6 +33,17 @@ v = stv # Set connection weight to start weight value
 nTs = len(x) # find the length of the input list
 y = np.zeros((1,nTs)) # set up (define) a vector for the output time series
 
+### ANSWER
+import numpy as np
+import matplotlib.pyplot as plt
+stv=4 # set start weight value
+dec=0.7 # set weight decrement
+pls=[0, 0, 1, 0, 0] # set up a pulse
+x=pls*6 # set up a series of pulses as the input
+nTs = len(x) # find the size of the input time series
+y=np.zeros((1,nTs)) # set up (define) a vector for the output time series
+v=stv # set weight to start weight value
+
 # TODO: use a for-loop to iterate 
 #        through each time step in 
 #        the input series and calculate
@@ -42,6 +53,11 @@ y = np.zeros((1,nTs)) # set up (define) a vector for the output time series
 #     describes how each input value in the vector x is 
 #     transformed to the output value in the vector y
 
+### ANSWER
+for t in range(0,nTs): # for each time step do
+    y[0,t]=v*x[t] # find the output 
+    if x[t]>0: # if the input is present
+        v=v*dec # then decrement the weight
 
 
 ###############################
